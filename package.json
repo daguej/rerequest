@@ -1,0 +1,17 @@
+{
+  "name": "rerequest",
+  "version": "0.1.0",
+  "description": "Creates fake HTTP request/response objects to send to Express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/daguej/rerequest.git",
+  "keywords": [
+    "http",
+    "express"
+  ],
+  "author": "Josh Dague",
+  "license": "MIT",
+  "readmeFilename": "readme.md"
+}
