@@ -23,7 +23,6 @@ MockHTTPRequest.prototype.setEncoding = function(encoding) {
 }
 
 MockHTTPRequest.prototype.write = function(chunk, encoding) {
-	console.log('req write', chunk);
 	chunk = new Buffer(chunk, encoding);
 	if (!this._content) this._content = chunk;
 	else this._content = Buffer.concat([this._content, chunk]);
@@ -36,7 +35,6 @@ MockHTTPRequest.prototype.addTrailers = function(trailers) {
 };
 
 MockHTTPRequest.prototype.end = function(data, encoding) {
-	console.log('req.end', data);
 	if (data) this.write(data, encoding);
 
 	this.emit('end');

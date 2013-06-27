@@ -77,7 +77,7 @@ Rerequest.prototype.request = function(method, url, opts, cb) {
 					// (ie Express), so we'll just suck it up and take the perf hit.
 					res.body = JSON.parse(res.body);
 				} catch (ex) {
-					console.error('json parse error', ex);
+					console.error('rerequest json parse error', ex);
 					res.body = null;
 				}
 			}

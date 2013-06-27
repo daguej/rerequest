@@ -34,7 +34,6 @@ util.inherits(MockHTTPResponse, EventEmitter);
 MockHTTPResponse.prototype.writeContinue = function() {};
 
 MockHTTPResponse.prototype.writeHead = function(statusCode, reason, headers) {
-	console.log('writeHead', statusCode, reason, headers);
 	if (typeof reason == 'object') {
 		headers = reason;
 		reason = null;
@@ -51,22 +50,18 @@ MockHTTPResponse.prototype.writeHead = function(statusCode, reason, headers) {
 };
 
 MockHTTPResponse.prototype.setHeader = function(name, value) {
-	console.log('setHeader', name, value);
 	this._headers[name] = value;
 };
 
 MockHTTPResponse.prototype.getHeader = function(name) {
-	console.log('getHeader', name);
 	return this._headers[name];
 };
 
 MockHTTPResponse.prototype.removeHeader = function(name) {
-	console.log('removeHeader', name);
 	delete this._headers[name];
 };
 
 MockHTTPResponse.prototype.write = function(chunk, encoding) {
-	console.log('write', chunk)
 	if (!this._content) this._content = new Buffer(chunk, encoding);
 	else this._content = Buffer.concat([this._content, new Buffer(chunk, encoding)]);
 
@@ -78,10 +73,7 @@ MockHTTPResponse.prototype.addTrailers = function(trailers) {
 };
 
 MockHTTPResponse.prototype.end = function(data, encoding) {
-	console.log('res end', data);
 	if (data) this.write(data, encoding);
-
-	//this.emit('finish')
 
 	// make statusCode a regular property so that the int actually shows up in the console
 	Object.defineProperty(this, 'statusCode', {
