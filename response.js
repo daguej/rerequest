@@ -32,6 +32,7 @@ var MockHTTPResponse = module.exports = exports = function MockHTTPResponse() {
 util.inherits(MockHTTPResponse, EventEmitter);
 
 MockHTTPResponse.prototype.writeContinue = function() {};
+MockHTTPResponse.prototype._implicitHeader = function() {};
 
 MockHTTPResponse.prototype.writeHead = function(statusCode, reason, headers) {
 	if (typeof reason == 'object') {
