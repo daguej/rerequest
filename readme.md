@@ -37,7 +37,8 @@ Options
             'Content-Type': 'application/x-www-form-urlencoded',
             'Host': req.host // if you're doing any vhosty type stuff
         },
-        body: 'key=value&awesome=true' // Content-Length is automatically set
+        body: 'key=value&awesome=true', // Content-Length is automatically set
+        socket: req.socket // copies socket.remoteAddress and friends to the rerequest
     }, function (result) {
         // ...
     });

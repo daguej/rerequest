@@ -1,6 +1,6 @@
 {
   "name": "rerequest",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Creates fake HTTP request/response objects to send to Express.",
   "main": "index.js",
   "scripts": {

@@ -8,6 +8,12 @@ var MockHTTPRequest = module.exports = exports = function MockHTTPRequest(method
 	this.method = method || 'GET';
 	this.url = url;
 	this.connection = {};
+	this.socket = this.connection = this.client = {
+		remoteAddress: null,
+		remotePort: null,
+		localAddress: null,
+		localPort: null
+	};
 	/*this.socket = {
 		destroy: function() {
 			process.exit(1);

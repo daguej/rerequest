@@ -55,6 +55,8 @@ Rerequest.prototype.request = function(method, url, opts, cb) {
 	if (typeof opts.body == 'object') req.body = opts.body;
 	req.session = opts.session;
 
+	if (typeof opts.socket == 'object') for (var k in req.socket) req.socket[k] = opts.socket[k];
+
 	// Express fucks with the prototype chain, so we have to replace the real
 	// ServerResponse with our own
 	this.app.request.__proto__.__proto__ = req.__proto__;
