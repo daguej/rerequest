@@ -14,6 +14,11 @@ var MockHTTPRequest = module.exports = exports = function MockHTTPRequest(method
 		localAddress: null,
 		localPort: null
 	};
+
+	Object.defineProperty(this, 'protocol', { // we have to make `protocol` a non-configurable property so that Express can't overwrite it with 'http'
+		value: 'internal'
+	});
+
 	/*this.socket = {
 		destroy: function() {
 			process.exit(1);
